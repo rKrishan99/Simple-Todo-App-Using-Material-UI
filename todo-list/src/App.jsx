@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.css";
 import TodoItem from "./components/todo-item/index";
-import "./App.css";
 import TodoDetails from "./components/todo-details";
 import { Skeleton } from "@mui/material"
 
@@ -10,7 +9,7 @@ function App() {
   const [todoList, setTodoList] = useState([]);
   const [errorMsg, setErrorMsg] = useState(null);
   const [todoDetails, setTodoDetails] = useState(null);
-  const [openDialog, setOpenDialog] = useState(null);
+  const [openDialog, setOpenDialog] = useState(false);
 
   async function fetchListOfTodos() {
     try {
@@ -18,11 +17,10 @@ function App() {
       const apiResponse = await fetch("https://dummyjson.com/todos");
       const result = await apiResponse.json();
 
-      console.log(result);
-
-      if (result?.todos ?? result?.todos?.length > 0) {
+      if (result?.todos && result?.todos?.length > 0) {
         setTodoList(result?.todos);
         setLoading(false);
+        setErrorMsg("");
       } else {
         setTodoList([]);
         setLoading(false);
@@ -52,7 +50,9 @@ function App() {
       }
 
       console.log(details);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
@@ -75,6 +75,7 @@ function App() {
           : null}
       </div>
       <TodoDetails
+        setOpenDialog={setOpenDialog}
         openDialog={openDialog}
         todoDetails={todoDetails}
         setTodoDetails={setTodoDetails}
