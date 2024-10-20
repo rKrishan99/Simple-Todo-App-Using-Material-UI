@@ -50,18 +50,7 @@ The project uses the following dependencies:
 
 ## Project Structure
 
-.
-├── public              # Static files
-├── src
-│   ├── components      # Reusable components
-│   │   ├── todo-item   # Todo item component
-│   │   └── todo-details # Todo details dialog component
-│   ├── App.js          # Main app component
-│   ├── styles.module.css # Styling for the app
-│   └── index.js        # Entry point of the app
-├── package.json        # Project dependencies and scripts
-└── README.md           # Project documentation
-
+![Screenshot 2024-10-20 134722](https://github.com/user-attachments/assets/1a55b44d-682e-45ec-838b-725aee71d8e1)
 
 ## API Used
 
