@@ -64,6 +64,7 @@ function App() {
   return (
     <div className={styles.mainWrapper}>
       <h1 className={styles.headerTitle}>Simple Todo App Using Material UI</h1>
+      <hr className={styles.hrLine}/>
       <div className={styles.todoListWrapper}>
         {todoList && todoList.length > 0
           ? todoList.map((todoItem) => (
